@@ -7,8 +7,13 @@ const app = express();
 
 // Connect to Elasticsearch
 const esClient = new Client({
-  node: "http://elasticsearch:9201", // Use service name defined in Docker Compose
-});
+  cloud: {
+    id: "e_commerce:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQwMDRhZGI3YjE0YWU0NTkzYWUwN2FlYzUxN2NmODdiYiRkMDY4MWZiNzBiYmY0MmFmYThhMTg0NDZjOGU2ZDk3YQ=="  },
+  auth: {
+    username: 'elastic',
+    password: 'NVZ6BDugpzWYFC8O2gIsRSqD'
+  }
+})
 
 // Connect to MySQL database
 const db = mysql.createConnection({
